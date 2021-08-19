@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+ 
+ 
+ html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: Montserrat
+}
+/* -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif; */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+.background {
+  height: 100vh; 
+  width: 100%; 
+  z-index: -1;
+  position: fixed; 
+  top: 0; 
+  left: 0
+}
+
+.menu-btn {
+  transition: all .5s ease-in-out;
+  position: relative;
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  width: 80px; 
+  height: 80px; 
+  cursor: pointer; 
+  z-index: 100; 
+  
+}
+
+.menu-btn__burger {
+  z-index: 10; 
+
+  width: 30px;
+  height: 2px; 
+  background: white; 
+  transition: all .5s ease-in-out,
+}
+
+.menu-btn__burger::before, .menu-btn__burger::after {
+  width: 30px;
+  height: 2px;  
+  background: white; 
+  content: "";
+  position: absolute; 
+  transition: all .5s ease-in-out,
+}
+
+.menu-btn__burger::before {
+  transform: translateY(-11px)
+}
+
+.menu-btn__burger::after {
+  transform: translateY(11px)
+}
+
+.menu-btn.open .menu-btn__burger {
+transform: translateX(-50px);
+background: transparent; 
+box-shadow: none
+}
+
+.menu-btn.open .menu-btn__burger::before {
+  transform: rotate(45deg) translate(35px, -35px)
+  }
+
+  .menu-btn.open .menu-btn__burger::after {
+    transform: rotate(-45deg) translate(35px, 35px)
+    }
+
+    .contactPage {
+      background-color: black;
+      position: fixed; 
+      top: 0; 
+      left: 0;
+      width: 100%; 
+      height: 100vh; 
+      z-index: 5; 
+      opacity: 0;
+      padding-top: 3rem;
+      transition: opacity .5s linear;
+    }
+    .contactPage.open {
+      opacity: 1;
+      transition: opacity .5s linear;
+
+    }
+
+    h1, h2, h3, h4 {
+      text-transform: uppercase;
+      margin-top: 20px;
+      text-align: center; 
+      color: white; 
+      font-family: Montserrat
+
+    }
+
+    .instagram-button {
+      background-color: transparent;
+      box-shadow: none;
+      border: none; 
+    }
+    .instagram-icon {
+      height: 50px; 
+      filter: invert(60%);
+      transition: all .2s ease-in-out;
+
+    }
+    .instagram-icon:hover {
+      height: 50px; 
+      filter: invert(100%);
+    }
+
+
+
+
+
+
+
+
+    .fadecycle > * {
+      opacity: 0;
+      position: absolute;
+
+      position: fixed; 
+      top: 0; 
+      left: 0;
+
+      text-align: center;
+    }
+    .singleimage img {
+      object-fit: cover; 
+      text-align: center;
+      width: 100%;
+      height: 100vh; 
+    }
+
+    .imagegradient:after {
+      content:'';
+      position:absolute;
+      left:0; top:0;
+      width:100%; height:100%;
+      background: linear-gradient(transparent, #000000cc);      // background: -webkit-linear-gradient(top, rgba(215, 219, 221, 0.5) rgba(0,47,75,0.5) 100%); /* Chrome10+,Safari5.1+ */
+    }
+      .fadecycle > *:nth-child(1) 
+    .fadecycle > *:nth-child(2) 
+    .fadecycle > *:nth-child(3) 
+    .fadecycle > *:nth-child(4) 
+    .fadecycle > *:nth-child(5) 
+    .fadecycle > *:nth-child(6) { background:none; }
+
+    // Animation settings
+    $totalTime: 21s;
+    $items: 6;
+    $animationSpeed: 2.5;
+    
+    // Calculate animation time in seconds (how long the fade lasts)
+    $animationTime: 0s + $totalTime / ($items * $animationSpeed * 2);
+    // Calculate show time in seconds (how long the element is displayed)
+    $showTime: (0s + $totalTime - ($animationTime * $items)) / $items;
+    
+    // Set animation for each element
+    @for $i from 1 through $items {
+      .fadecycle > *:nth-child(#{$i}) {
+        // Delay is increased for each item
+        // Starting with an offset of -$animationTime so the first element is displayed on load
+        $delay: -$animationTime + ($animationTime + $showTime) * ($i - 1);
+        animation: fadeinout $totalTime linear $delay infinite;
+      }
+    }
+    
+    $animationPercentage: 0% + 100 * (($animationTime / $totalTime));
+    $showPercentage: 0% + 100 * ($showTime / $totalTime);
+    
+    @keyframes fadeinout {
+      0% {
+        opacity: 0;
+      }
+      #{$animationPercentage},
+      #{$animationPercentage + $showPercentage} {
+        opacity: 1;
+      }
+      #{$showPercentage + $animationPercentage * 2},
+      100% {
+        opacity: 0;
+      }
+    }
+    
+    .caption { 
+      position: absolute; 
+      top: 85%;
+      left: 25%;
+      width: 100%;
+      text-wrap: wrap; 
+
+    }
