@@ -57,15 +57,13 @@ import { getStrapiURL } from "../lib/api";
 //     backgroundImage: urlString,
 //     objectFit: "cover"
 //   };
-  
-  
+
 //       return (
 //         <section className='fadein' style={ sectionStyle }>
 //       </section>
 //       );
 //     }
 //   }
-
 
 // import React, { useState, useEffect } from "react";
 
@@ -80,7 +78,7 @@ import { getStrapiURL } from "../lib/api";
 //             getStrapiURL('/uploads/1_Kelli_leigh_8ee8a01fa3.png'),
 //             getStrapiURL('/uploads/5_Ollie_Wride_OIALT_9c58282827.jpg'),
 //             getStrapiURL('/uploads/3_USHUAIA_a66a5c6efc.jpg')
-    
+
 //           ];
 //   useEffect(() => {
 //     setInterval(() => {
@@ -102,61 +100,78 @@ import { getStrapiURL } from "../lib/api";
 //   );
 // }
 
-
-
-
-
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
-import Crossfade from 'react-crossfade-responsive'
-  const images = [
-            getStrapiURL('/uploads/2_Twin_Lee_bc58e1ea0c.jpg'),
-            getStrapiURL('/uploads/4_Radio_City_67ae2e71b5.jpg'),
-            getStrapiURL('/uploads/6_Ollie_Wride_9177b9c63f.jpg'),
-            getStrapiURL('/uploads/1_Kelli_leigh_8ee8a01fa3.png'),
-            getStrapiURL('/uploads/5_Ollie_Wride_OIALT_9c58282827.jpg'),
-            getStrapiURL('/uploads/3_USHUAIA_a66a5c6efc.jpg')
-    
-          ];
+import Crossfade from "react-crossfade-responsive";
+const images = [
+  getStrapiURL("/uploads/2_Twin_Lee_bc58e1ea0c.jpg"),
+  getStrapiURL("/uploads/4_Radio_City_67ae2e71b5.jpg"),
+  getStrapiURL("/uploads/6_Ollie_Wride_9177b9c63f.jpg"),
+  getStrapiURL("/uploads/1_Kelli_leigh_8ee8a01fa3.png"),
+  getStrapiURL("/uploads/5_Ollie_Wride_OIALT_9c58282827.jpg"),
+  getStrapiURL("/uploads/3_USHUAIA_a66a5c6efc.jpg"),
+];
 
-export default function Background ({projects}) {
+export default function Background({ projects }) {
+  console.log("PROJECTS", projects);
+  const { content } = projects.find((e) => e.title === "Images");
+  return (
+    <div className="fadecycle">
+      <div className="singleimage">
+        <div className="imagegradient">
+          <img src={getStrapiURL(content[0].media.url)} />
+        </div>{" "}
+        <div className="caption">
+          <h2>{content[0].media.caption}</h2>
+          <h5>{content[0].description}</h5>
+        </div>
+      </div>
+      <div className="singleimage">
+        <div className="imagegradient">
+          <img src={getStrapiURL(content[1].media.url)} />
+        </div>
+        <div className="caption">
+          <h2>{content[1].media.caption}</h2>
+          <h5>{content[1].description}</h5>
+        </div>
+      </div>
+      <div className="singleimage">
+        <div className="imagegradient">
+          <img src={getStrapiURL(content[2].media.url)} />
+        </div>
+        <div className="caption">
+          <h2>{content[2].media.caption}</h2>
+          <h5>{content[2].description}</h5>
+        </div>
+      </div>
+      <div className="singleimage">
+        <div className="imagegradient">
+          <img src={getStrapiURL(content[3].media.url)} />
+        </div>
+        <div className="caption">
+          <h2>{content[3].media.caption}</h2>
+          <h5>{content[3].description}</h5>
+        </div>
+      </div>
+      <div className="singleimage">
+        <div className="imagegradient">
+          <img src={getStrapiURL(content[4].media.url)} />
+        </div>
+        <div className="caption">
+          <h2>{content[4].media.caption}</h2>
+          <h5>{content[4].description}</h5>
+        </div>{" "}
+      </div>
 
-
-console.log('PROJECTS', projects)
-const {content} = projects.find(e => e.title === 'Images')
-return (
-      <div className="fadecycle">
-      <div className='singleimage'>
-      <div className='imagegradient'>
-        <img src={  getStrapiURL(content[0].media.url)}/>  </div>       <h2 className='caption'>{content[0].media.caption}</h2>
-</div>
-        <div className='singleimage'>
-        <div className='imagegradient'>
-
-        <img src={  getStrapiURL(content[1].media.url)}/> </div>         <h2 className='caption'>{content[1].media.caption}</h2>
-</div>
-        <div className='singleimage'>
-        <div className='imagegradient'>
-        <img src={  getStrapiURL(content[2].media.url)}/> </div>  
-               <h2 className='caption'>{content[2].media.caption}</h2>
-</div>
-        <div className='singleimage'>
-        <div className='imagegradient'>
-        <img src={  getStrapiURL(content[3].media.url)}/> </div>       <h2 className='caption'>{content[3].media.caption}</h2>
-</div>
-        <div className='singleimage'>
-        <div className='imagegradient'>
-        <img src={  getStrapiURL(content[4].media.url)}/></div>
-        <h2 className='caption'>{content[4].media.caption}</h2></div>
-        <div className='singleimage'>
-          <div className='imagegradient'>
-        <img src={  getStrapiURL(content[5].media.url)}/></div>
-        <h2 className='caption'>{content[5].media.caption}</h2></div>
-
+      <div className="singleimage">
+        <div className="imagegradient">
+          <img src={getStrapiURL(content[5].media.url)} />
+        </div>
+        <div className="caption">
+          <h2>{content[5].media.caption}</h2>
+          <h5>{content[5].description}</h5>
+        </div>{" "}
+      </div>
     </div>
-
-
-    );
-  
+  );
 }
-
