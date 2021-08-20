@@ -1,9 +1,10 @@
 import instagramIcon from "../components/images/instagram-brands.svg";
-export default function Contact({ isOpen, projects, global }) {
+export default function Contact({ projects, global }) {
   const { content } = projects.find((e) => e.title === "Address");
   const instagram = global.socialNetworks.find((e) => e.title === "Instagram");
+
   return (
-    <div className={`contactPage${isOpen ? " open" : ""}`}>
+    <div className="contact-flyout">
       <div className="contact-wrapper">
         <h2 className="contact-title">Contact</h2>
         <h4 style={{ fontWeight: "800" }}>{content[0].content}</h4>

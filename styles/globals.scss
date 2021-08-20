@@ -5,12 +5,45 @@ body {
   padding: 0;
   margin: 0;
   font-family: Montserrat;
+  background: black;
 }
 /* -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
 Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif; */
 a {
   color: inherit;
   text-decoration: none;
+}
+
+.contact-flyout,
+.intro-flyout {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+  background-color: #000000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  padding-top: 3rem;
+  transition: opacity 0.5s linear;
+
+  &-enter {
+    opacity: 0.1;
+  }
+  &-enter-active {
+    opacity: 0.5;
+    transition: opacity 300ms;
+  }
+  &-enter-done {
+    opacity: 1;
+  }
+  &-exit-done {
+    opacity: 0;
+  }
+  &-exit-active {
+    opacity: 0.7;
+    transition: opacity 1s;
+  }
 }
 
 h1,
@@ -80,9 +113,9 @@ button {
   margin-top: 20%;
 }
 
-.contact-wrapper {
-  margin-left: 60px;
-  margin-top: 20%;
+.intro-wrapper {
+  padding: 7rem 4.5rem 0 4.5rem;
+  line-height: 1.5rem;
 }
 
 .menu-btn {
@@ -280,25 +313,6 @@ $showPercentage: 0% + 100 * ($showTime / $totalTime);
 
 .logo.open {
   transform: rotate(120deg);
-}
-
-.introPage {
-  background-color: #000000;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  z-index: 5;
-  opacity: 0;
-  padding-top: 3rem;
-  transition: opacity 0.5s linear;
-  padding: 7rem 4.5rem 0 4.5rem;
-  line-height: 1.5rem;
-}
-.introPage.open {
-  opacity: 1;
-  transition: opacity 0.5s linear;
 }
 
 .intro {
