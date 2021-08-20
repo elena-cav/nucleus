@@ -3,16 +3,16 @@ import Head from "next/head";
 // import "../assets/css/style.css";
 import { createContext } from "react";
 import { fetchAPI } from "../lib/api";
-import '../styles/globals.scss'
+import "../styles/globals.scss";
 // Store Strapi Global object in context
 export const GlobalContext = createContext({});
 
 const MyApp = ({ Component, pageProps }) => {
-  console.log('NUCLEUS MUSIC IS AN ARTIST MANAGEMENT & ENTERTAINMENT BUSINESS EMPOWERING TALENT TO ENGAGE WITH GLOBAL AUDIENCES THROUGH MUSIC, DIGITAL CONTENT AND LIVE PERFORMANCES'.toLowerCase())
   const { global } = pageProps;
   return (
     <>
       <Head>
+        <title>Nucleus Music</title>
         <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Staatliches"
