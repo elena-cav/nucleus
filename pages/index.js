@@ -8,30 +8,44 @@ import { useState } from "react";
 import Background from "../components/Background";
 import Contact from "../components/Contact";
 import Introduction from "../components/Introduction";
-import { CSSTransition } from "react-transition-group";
-
+import { Transition } from "react-transition-group";
+import React from "react";
 export default function Home({ projects, homepage, global }) {
-  const [isOpen, setIsOpen] = useState(false);
-  const toggleTrueFalse = () => setIsOpen(!isOpen);
-
+  const [isContactOpen, setContactIsOpen] = useState(false);
   const [introIsOpen, setIntroIsOpen] = useState(false);
+
+  const toggleContactTrueFalse = () => setContactIsOpen(!isContactOpen);
+
   const toggleIntroTrueFalse = () => setIntroIsOpen(!introIsOpen);
 
   // useEffect(() => {
-  //   if (isOpen) {
+  //   if (isContactOpen) {
   //     setIntroIsOpen(false);
   //   }
   //   if (introIsOpen) {
-  //     setIsOpen(false);
+  //     setContactIsOpen(false);
   //   }
   // });
+  // const nodeRef = React.useRef(null);
+  console.log(introIsOpen, isContactOpen);
+  const defaultStyle = {
+    transition: `opacity 300ms ease-in-out`,
+    opacity: 0,
+  };
+
+  const transitionStyles = {
+    entering: { opacity: 0.5 },
+    entered: { opacity: 1 },
+    exiting: { opacity: 0.5 },
+    exited: { opacity: 0 },
+  };
 
   return (
-    <div className={styles.container}>
+    <div>
       <Background projects={projects} />
       <button
-        onClick={toggleTrueFalse}
-        className={`menu-btn${isOpen ? " open" : ""}`}
+        onClick={toggleContactTrueFalse}
+        className={`menu-btn${isContactOpen ? " open" : ""}`}
       >
         <div className="menu-btn__burger"></div>
       </button>
@@ -41,14 +55,30 @@ export default function Home({ projects, homepage, global }) {
           src={Logo.src}
         ></img>
       </button>
-      <CSSTransition in={isOpen} classNames="contact-flyout" timeout={200}>
-        <Contact projects={projects} global={global} />
-      </CSSTransition>
-      <CSSTransition in={introIsOpen} classNames="contact-flyout" timeout={200}>
-        <Introduction global={global} projects={projects} />
-      </CSSTransition>
-
-      {/* <h1 className="hero">{homepage.bio}</h1> */}
+      <Transition classNames="contact-flyout" in={isContactOpen} timeout={300}>
+        {(state) => (
+          <div
+            style={{
+              ...defaultStyle,
+              ...transitionStyles[state],
+            }}
+          >
+            <Contact projects={projects} global={global} />
+          </div>
+        )}
+      </Transition>
+      <Transition classNames="intro-flyout" in={introIsOpen} timeout={300}>
+        {(state) => (
+          <div
+            style={{
+              ...defaultStyle,
+              ...transitionStyles[state],
+            }}
+          >
+            <Introduction global={global} projects={projects} />
+          </div>
+        )}
+      </Transition>
     </div>
   );
 }

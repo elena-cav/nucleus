@@ -1,4 +1,3 @@
-import { useState } from "react";
 export default function Introduction({ projects, global }) {
   const { content } = projects.find((e) => e.title === "Long intro");
   return (
