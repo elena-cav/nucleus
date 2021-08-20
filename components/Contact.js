@@ -17,7 +17,12 @@ export default function Contact({ isOpen, projects, global }) {
           </a>
         </h4>
         <h4 className="socials-title">Socials</h4>
-        <a target="_blank" href={instagram.url} className="instagram-button">
+        <a
+          rel="noreferrer"
+          target="_blank"
+          href={instagram.url}
+          className="instagram-button"
+        >
           {" "}
           <img
             alt="Instagram icon"
