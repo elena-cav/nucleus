@@ -14,20 +14,25 @@ export default function Home({ projects, homepage, global }) {
   const [isContactOpen, setContactIsOpen] = useState(false);
   const [introIsOpen, setIntroIsOpen] = useState(false);
 
-  const toggleContactTrueFalse = () => setContactIsOpen(!isContactOpen);
+  const toggleContactTrueFalse = () => {
+    if (isContactOpen) {
+      setContactIsOpen(false);
+    } else if (!isContactOpen) {
+      setContactIsOpen(true);
+      setIntroIsOpen(false);
+    }
+  };
 
-  const toggleIntroTrueFalse = () => setIntroIsOpen(!introIsOpen);
+  const toggleIntroTrueFalse = () => {
+    if (introIsOpen) {
+      setIntroIsOpen(false);
+    }
+    if (!introIsOpen) {
+      setIntroIsOpen(true);
+      setContactIsOpen(false);
+    }
+  };
 
-  // useEffect(() => {
-  //   if (isContactOpen) {
-  //     setIntroIsOpen(false);
-  //   }
-  //   if (introIsOpen) {
-  //     setContactIsOpen(false);
-  //   }
-  // });
-  // const nodeRef = React.useRef(null);
-  console.log(introIsOpen, isContactOpen);
   const defaultStyle = {
     transition: `opacity 300ms ease-in-out`,
     opacity: 0,
