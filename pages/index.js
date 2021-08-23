@@ -54,11 +54,11 @@ export default function Home({ projects, homepage, global }) {
       >
         <div className="menu-btn__burger"></div>
       </button>
-      <button onClick={toggleIntroTrueFalse}>
-        <img
-          className={`logo${introIsOpen ? " open" : ""}`}
-          src={Logo.src}
-        ></img>
+      <button
+        className={`logo${introIsOpen ? " open" : ""}`}
+        onClick={toggleIntroTrueFalse}
+      >
+        <img src={Logo.src}></img>
       </button>
       <Transition classNames="contact-flyout" in={isContactOpen} timeout={300}>
         {(state) => (

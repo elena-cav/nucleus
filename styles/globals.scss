@@ -7,14 +7,16 @@ body {
   font-family: Montserrat;
   background: black;
 }
-/* -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif; */
 a {
   color: inherit;
   text-decoration: none;
 }
 .contact-flyout {
   z-index: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  // align-items: center;
 }
 
 .contact-flyout,
@@ -81,22 +83,26 @@ h4 {
 .contact-title {
   margin-bottom: 20px;
   position: relative;
+  border-bottom: 2px solid white;
+  padding-bottom: 3px;
 }
 .socials-title {
   margin-top: 20px;
   margin-bottom: 20px;
   position: relative;
+  border-bottom: 2px solid white;
+  padding-bottom: 3px;
 }
-.contact-title::after,
-.socials-title::after {
-  position: absolute;
-  content: "";
-  background-color: white;
-  width: 80%;
-  height: 2px;
-  top: 1.7rem;
-  left: 0;
-}
+// .contact-title::after,
+// .socials-title::after {
+//   position: absolute;
+//   content: "";
+//   background-color: white;
+//   width: 70%;
+//   height: 2px;
+//   top: 1.7rem;
+//   left: 0;
+// }
 
 * {
   box-sizing: border-box;
@@ -118,8 +124,9 @@ button {
   left: 0;
 }
 .contact-wrapper {
-  margin-left: 60px;
-  margin-top: 20%;
+  width: 100%;
+  max-width: 80%;
+  margin-top: 7rem;
 }
 
 .intro-wrapper {
@@ -143,7 +150,9 @@ button {
 
 .menu-btn {
   transition: all 0.5s ease-in-out;
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -216,10 +225,17 @@ button {
   border: none;
 }
 .instagram-icon {
-  height: 40px;
+  height: 30px;
   filter: invert(60%);
   transition: all 0.5s ease-in-out;
 }
+
+@media only screen and (min-width: 600px) {
+  .instagram-icon {
+    height: 40px;
+  }
+}
+
 .instagram-icon:hover {
   filter: invert(100%);
 }
@@ -251,6 +267,11 @@ button {
   height: 100vh;
 }
 
+.singleimage {
+  width: 100%;
+  height: 100vh;
+}
+
 .imagegradient:after {
   content: "";
   position: absolute;
@@ -258,10 +279,7 @@ button {
   top: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    transparent,
-    #000000cc
-  ); // background: -webkit-linear-gradient(top, rgba(215, 219, 221, 0.5) rgba(0,47,75,0.5) 100%); /* Chrome10+,Safari5.1+ */
+  background: linear-gradient(transparent, #000000cc);
 }
 .fadecycle
   > *:nth-child(1)
@@ -309,6 +327,10 @@ $showPercentage: 0% + 100 * ($showTime / $totalTime);
   }
 }
 
+.fadecycle {
+  width: 100%;
+  height: 100vh;
+}
 .caption {
   padding-right: 5%;
   position: absolute;
@@ -324,13 +346,19 @@ $showPercentage: 0% + 100 * ($showTime / $totalTime);
   position: absolute;
   right: 15px;
   top: 15px;
-  height: 60px;
   cursor: pointer;
-  // color: white;
-  // filter: brightness(300);
-  // filter: blur(5px);
   filter: brightness(1);
   transition: all 0.8s ease-in-out;
+}
+
+.logo img {
+  height: 50px;
+  filter: brightness(1);
+}
+@media only screen and (min-width: 600px) {
+  .logo img {
+    height: 60px;
+  }
 }
 
 .logo.open {
