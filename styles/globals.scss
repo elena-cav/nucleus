@@ -302,16 +302,16 @@ $items: 6;
 $animationSpeed: 2.5;
 
 // $animationTime: 0s + $totalTime / ($items * $animationSpeed * 2);
-// $animationTime: 0.7s;
-// $showTime: 2.8s;
+$animationTime: 0.7s;
+$showTime: 2.8s;
 // $showTime: (0s + $totalTime - ($animationTime * $items)) / $items;
 
-// @for $i from 1 through $items {
-//   .fadecycle > *:nth-child(#{$i}) {
-//     $delay: -$animationTime + ($animationTime + $showTime) * ($i - 1);
-//     animation: fadeinout $totalTime linear $delay infinite;
-//   }
-// }
+@for $i from 1 through $items {
+  .fadecycle > *:nth-child(#{$i}) {
+    $delay: -$animationTime + ($animationTime + $showTime) * ($i - 1);
+    animation: fadeinout $totalTime linear $delay infinite;
+  }
+}
 
 // $animationPercentage: 33.33%;
 // $showPercentage: 13.33%;
