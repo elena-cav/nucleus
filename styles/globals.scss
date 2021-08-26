@@ -116,6 +116,9 @@ button {
 }
 
 .background {
+  animation: fadeInAnimation ease 3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
   height: 100vh;
   width: 100%;
   z-index: -1;
@@ -224,20 +227,21 @@ button {
   box-shadow: none;
   border: none;
 }
-.instagram-icon {
+.instagram-icon,
+.linkedin-icon,
+.twitter-icon {
   height: 30px;
   filter: invert(60%);
   transition: all 0.5s ease-in-out;
-}
+  padding-right: 0.8rem;
 
-@media only screen and (min-width: 600px) {
-  .instagram-icon {
-    height: 40px;
+  @media only screen and (min-width: 600px) {
+    height: 35px;
+
+    &:hover {
+      filter: invert(100%);
+    }
   }
-}
-
-.instagram-icon:hover {
-  filter: invert(100%);
 }
 
 .email a {
@@ -333,16 +337,21 @@ $showPercentage: 0% + 100 * ($showTime / $totalTime);
 }
 .caption {
   padding-right: 5%;
+  padding-left: 5%;
   position: absolute;
-  bottom: 10%;
+  bottom: 15%;
   width: 100%;
   display: flex;
   flex-direction: column;
   text-align: right;
+
+  h1 {
+    font-size: 1.7rem;
+  }
 }
 
 .logo {
-  z-index: 999;
+  z-index: 998;
   position: absolute;
   right: 15px;
   top: 15px;
@@ -369,8 +378,31 @@ $showPercentage: 0% + 100 * ($showTime / $totalTime);
   margin-bottom: 2rem;
 }
 
-.hero {
-  color: white;
+.first-page {
+  background-color: black;
+  height: 100vh;
+  width: 100%;
   z-index: 999;
-  position: fixed;
+  opacity: 1;
+  animation: fadeInAnimation ease 3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  padding: 0 4rem 0 4rem;
+  .first-page-intro {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+}
+.first-page-button {
+  height: 100vh;
+  width: 100%;
+}
+
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

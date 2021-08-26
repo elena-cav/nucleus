@@ -1,7 +1,12 @@
 import instagramIcon from "../components/images/instagram-brands.svg";
+import twitterIcon from "../components/images/twitter-brands.svg";
+import linkedinIcon from "../components/images/linkedin-brands.svg";
+
 export default function Contact({ projects, global }) {
   const { content } = projects.find((e) => e.title === "Address");
   const instagram = global.socialNetworks.find((e) => e.title === "Instagram");
+  const twitter = global.socialNetworks.find((e) => e.title === "Twitter");
+  const linkedin = global.socialNetworks.find((e) => e.title === "LinkedIn");
 
   return (
     <div className="contact-flyout">
@@ -26,11 +31,34 @@ export default function Contact({ projects, global }) {
           href={instagram.url}
           className="instagram-button"
         >
-          {" "}
           <img
             alt="Instagram icon"
             className="instagram-icon"
             src={instagramIcon.src}
+          ></img>
+        </a>
+        <a
+          rel="noreferrer"
+          target="_blank"
+          href={twitter.url}
+          className="twitter-button"
+        >
+          <img
+            alt="Twitter icon"
+            className="twitter-icon"
+            src={twitterIcon.src}
+          ></img>
+        </a>
+        <a
+          rel="noreferrer"
+          target="_blank"
+          href={linkedin.url}
+          className="linkedin-button"
+        >
+          <img
+            alt="Linkedin icon"
+            className="linkedin-icon"
+            src={linkedinIcon.src}
           ></img>
         </a>
       </div>

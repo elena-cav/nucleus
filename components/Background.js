@@ -9,7 +9,7 @@ export default function Background({ projects }) {
               <img alt={pic.media.alternativeText} src={pic.media.url} />
             </div>{" "}
             <header className="caption">
-              <h2>{pic.media.caption}</h2>
+              <h1>{pic.media.caption}</h1>
               <p>{pic.description}</p>
             </header>
           </div>

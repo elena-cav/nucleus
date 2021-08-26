@@ -9,10 +9,12 @@ import Background from "../components/Background";
 import Contact from "../components/Contact";
 import Introduction from "../components/Introduction";
 import { Transition } from "react-transition-group";
+import FirstPage from "../components/FirstPage";
 import React from "react";
 export default function Home({ projects, homepage, global }) {
   const [isContactOpen, setContactIsOpen] = useState(false);
   const [introIsOpen, setIntroIsOpen] = useState(false);
+  const [isActive, setActive] = useState(true);
 
   const toggleContactTrueFalse = () => {
     if (isContactOpen) {
@@ -45,45 +47,64 @@ export default function Home({ projects, homepage, global }) {
     exited: { opacity: 0 },
   };
 
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     setActive(false);
+  //   }, 8000);
+  //   return () => clearTimeout(timer);
+  // }, []);
+
   return (
     <div>
-      <Background projects={projects} />
-      <button
-        onClick={toggleContactTrueFalse}
-        className={`menu-btn${isContactOpen ? " open" : ""}`}
-      >
-        <div className="menu-btn__burger"></div>
-      </button>
-      <button
-        className={`logo${introIsOpen ? " open" : ""}`}
-        onClick={toggleIntroTrueFalse}
-      >
-        <img src={Logo.src}></img>
-      </button>
-      <Transition classNames="contact-flyout" in={isContactOpen} timeout={300}>
-        {(state) => (
-          <div
-            style={{
-              ...defaultStyle,
-              ...transitionStyles[state],
-            }}
+      {isActive ? (
+        <FirstPage setActive={setActive} projects={projects} />
+      ) : (
+        <div>
+          <Background projects={projects} />
+
+          <button
+            onClick={toggleContactTrueFalse}
+            className={`menu-btn${isContactOpen ? " open" : ""}`}
           >
-            <Contact projects={projects} global={global} />
-          </div>
-        )}
-      </Transition>
-      <Transition classNames="intro-flyout" in={introIsOpen} timeout={300}>
-        {(state) => (
-          <div
-            style={{
-              ...defaultStyle,
-              ...transitionStyles[state],
-            }}
+            <div className="menu-btn__burger"></div>
+          </button>
+          <button
+            className={`logo${introIsOpen ? " open" : ""}`}
+            onClick={toggleIntroTrueFalse}
           >
-            <Introduction global={global} projects={projects} />
-          </div>
-        )}
-      </Transition>
+            <img src={Logo.src}></img>
+          </button>
+
+          <Transition
+            classNames="contact-flyout"
+            in={isContactOpen}
+            timeout={300}
+          >
+            {(state) => (
+              <div
+                style={{
+                  ...defaultStyle,
+                  ...transitionStyles[state],
+                }}
+              >
+                <Contact projects={projects} global={global} />
+              </div>
+            )}
+          </Transition>
+          <Transition classNames="intro-flyout" in={introIsOpen} timeout={300}>
+            {(state) => (
+              <div
+                style={{
+                  ...defaultStyle,
+                  ...transitionStyles[state],
+                }}
+              >
+                <Introduction global={global} projects={projects} />
+              </div>
+            )}
+          </Transition>
+        </div>
+      )}
     </div>
   );
 }
