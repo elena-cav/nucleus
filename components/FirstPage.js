@@ -1,5 +1,5 @@
 import { useState } from "react";
-export default function FirstPage({ projects, setActive }) {
+export default function FirstPage({ projects }) {
   const { content } = projects.find((e) => e.title === "Long intro");
   const image = projects.find((e) => e.title === "Main Image");
   return (

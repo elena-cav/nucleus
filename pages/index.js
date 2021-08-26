@@ -57,11 +57,7 @@ export default function Home({ projects, homepage, global }) {
   return (
     <div>
       {isActive ? (
-        <FirstPage
-          projects={projects}
-          setActive={setActive}
-          projects={projects}
-        />
+        <FirstPage projects={projects} />
       ) : (
         <div className="main-section">
           <Background projects={projects} />
