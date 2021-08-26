@@ -59,7 +59,7 @@ export default function Home({ projects, homepage, global }) {
       {isActive ? (
         <FirstPage setActive={setActive} projects={projects} />
       ) : (
-        <div>
+        <div className="main-section">
           <Background projects={projects} />
 
           <button

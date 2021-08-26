@@ -4,10 +4,9 @@ export default function FirstPage({ projects, setActive }) {
 
   return (
     <div className="first-page">
+      <p className="first-page-intro">{content[0].content}</p>
       <button onClick={() => setActive(false)} className="first-page-button">
-        <div>
-          <p className="first-page-intro">{content[0].content}</p>
-        </div>
+        Enter
       </button>
     </div>
   );

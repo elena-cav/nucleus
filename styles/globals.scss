@@ -116,9 +116,6 @@ button {
 }
 
 .background {
-  animation: fadeInAnimation ease 3s;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
   height: 100vh;
   width: 100%;
   z-index: -1;
@@ -304,28 +301,46 @@ $totalTime: 21s;
 $items: 6;
 $animationSpeed: 2.5;
 
-$animationTime: 0s + $totalTime / ($items * $animationSpeed * 2);
-$showTime: (0s + $totalTime - ($animationTime * $items)) / $items;
+// $animationTime: 0s + $totalTime / ($items * $animationSpeed * 2);
+// $animationTime: 0.7s;
+// $showTime: 2.8s;
+// $showTime: (0s + $totalTime - ($animationTime * $items)) / $items;
 
-@for $i from 1 through $items {
-  .fadecycle > *:nth-child(#{$i}) {
-    $delay: -$animationTime + ($animationTime + $showTime) * ($i - 1);
-    animation: fadeinout $totalTime linear $delay infinite;
-  }
-}
+// @for $i from 1 through $items {
+//   .fadecycle > *:nth-child(#{$i}) {
+//     $delay: -$animationTime + ($animationTime + $showTime) * ($i - 1);
+//     animation: fadeinout $totalTime linear $delay infinite;
+//   }
+// }
 
-$animationPercentage: 0% + 100 * (($animationTime / $totalTime));
-$showPercentage: 0% + 100 * ($showTime / $totalTime);
+// $animationPercentage: 33.33%;
+// $showPercentage: 13.33%;
+// $animationPercentage: 0% + 100 * (($animationTime / $totalTime));
+// $showPercentage: 0% + 100 * ($showTime / $totalTime);
+
+// @keyframes fadeinout {
+//   0% {
+//     opacity: 0;
+//   }
+//   #{$animationPercentage},
+//   #{$animationPercentage + $showPercentage} {
+//     opacity: 1;
+//   }
+//   #{$showPercentage + $animationPercentage * 2},
+//   100% {
+//     opacity: 0;
+//   }
+// }
 
 @keyframes fadeinout {
   0% {
     opacity: 0;
   }
-  #{$animationPercentage},
-  #{$animationPercentage + $showPercentage} {
+  3.3333333333%,
+  16.6666666667% {
     opacity: 1;
   }
-  #{$showPercentage + $animationPercentage * 2},
+  20%,
   100% {
     opacity: 0;
   }
@@ -388,16 +403,40 @@ $showPercentage: 0% + 100 * ($showTime / $totalTime);
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
   padding: 0 4rem 0 4rem;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
   .first-page-intro {
     font-size: 1rem;
     line-height: 1.5rem;
   }
 }
 .first-page-button {
-  height: 100vh;
-  width: 100%;
-}
+  margin-top: 3rem;
+  font-size: 1.5rem;
+  border: 1px solid white;
+  color: white;
+  width: auto;
+  padding: 0.5rem;
+  letter-spacing: 0.4rem;
+  height: fit-content;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 1s ease-in-out;
 
+  &:hover {
+    border: 1px solid rgb(160, 160, 160);
+
+    color: rgb(160, 160, 160);
+  }
+}
+.main-section {
+  animation: fadeInAnimation ease 3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
 @keyframes fadeInAnimation {
   0% {
     opacity: 0;
