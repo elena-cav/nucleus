@@ -5,7 +5,11 @@ export default function FirstPage({ projects }) {
   return (
     <div className="first-page">
       <div className="image-gradient">
-        <img className="first-image" src={image.content[0].media.url}></img>
+        <img
+          alt={image.content[0].media.alternativeText}
+          className="first-image"
+          src={image.content[0].media.url}
+        ></img>
       </div>
       <p className="first-page-intro">{content[0].content}</p>
       {/* <button onClick={() => setActive(false)} className="first-page-button">

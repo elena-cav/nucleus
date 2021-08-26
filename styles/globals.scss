@@ -453,11 +453,7 @@ $showTime: 2.8s;
   left: 0;
   z-index: 1;
 }
-.image-gradient {
-  height: 100vh;
-  width: 100%;
-  z-index: 10;
-}
+
 .image-gradient:after {
   content: "";
   position: absolute;
