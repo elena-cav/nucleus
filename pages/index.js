@@ -47,17 +47,21 @@ export default function Home({ projects, homepage, global }) {
     exited: { opacity: 0 },
   };
 
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     setActive(false);
-  //   }, 8000);
-  //   return () => clearTimeout(timer);
-  // }, []);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setActive(false);
+    }, 8000);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <div>
       {isActive ? (
-        <FirstPage setActive={setActive} projects={projects} />
+        <FirstPage
+          projects={projects}
+          setActive={setActive}
+          projects={projects}
+        />
       ) : (
         <div className="main-section">
           <Background projects={projects} />

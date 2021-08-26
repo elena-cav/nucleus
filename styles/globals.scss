@@ -400,10 +400,6 @@ $showTime: 2.8s;
 }
 
 .first-page {
-  background-color: black;
-  height: 100vh;
-  width: 100%;
-  z-index: 999;
   opacity: 1;
   animation: fadeInAnimation ease 3s;
   animation-iteration-count: 1;
@@ -411,15 +407,19 @@ $showTime: 2.8s;
   padding: 0 4rem 0 4rem;
   display: flex;
   text-align: center;
+  height: 100vh;
+  width: 100%;
   align-items: center;
-  flex-direction: column;
   justify-content: center;
+
   @media only screen and (min-width: 600px) {
     padding: 0 7rem 0 7rem;
   }
+
   .first-page-intro {
     font-size: 1rem;
     line-height: 1.5rem;
+    z-index: 20;
 
     @media only screen and (min-width: 600px) {
       font-size: 1.2rem;
@@ -429,25 +429,6 @@ $showTime: 2.8s;
       font-size: 1.5rem;
       line-height: 2.5rem;
     }
-  }
-}
-.first-page-button {
-  margin-top: 3rem;
-  font-size: 1.5rem;
-  border: 1px solid white;
-  color: white;
-  width: auto;
-  padding: 0.5rem;
-  letter-spacing: 0.4rem;
-  height: fit-content;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: all 1s ease-in-out;
-
-  &:hover {
-    border: 1px solid rgb(160, 160, 160);
-
-    color: rgb(160, 160, 160);
   }
 }
 .main-section {
@@ -462,4 +443,28 @@ $showTime: 2.8s;
   100% {
     opacity: 1;
   }
+}
+.first-image {
+  height: 100vh;
+  width: 100%;
+  object-fit: cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.image-gradient {
+  height: 100vh;
+  width: 100%;
+  z-index: 10;
+}
+.image-gradient:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 2;
+  background: linear-gradient(transparent, #000000cc);
 }
