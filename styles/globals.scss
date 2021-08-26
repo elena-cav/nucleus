@@ -408,9 +408,21 @@ $showTime: 2.8s;
   align-items: center;
   flex-direction: column;
   justify-content: center;
+  @media only screen and (min-width: 600px) {
+    padding: 0 7rem 0 7rem;
+  }
   .first-page-intro {
     font-size: 1rem;
     line-height: 1.5rem;
+
+    @media only screen and (min-width: 600px) {
+      font-size: 1.2rem;
+      line-height: 2rem;
+    }
+    @media only screen and (min-width: 800px) {
+      font-size: 1.5rem;
+      line-height: 2.5rem;
+    }
   }
 }
 .first-page-button {
