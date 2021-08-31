@@ -13,8 +13,9 @@ const MyApp = ({ Component, pageProps }) => {
     <>
       <Head>
         <title>Nucleus Music</title>
-        <meta charset="UTF-8" />
+        <html lang="en" />
 
+        <meta charSet="UTF-8" />
         <meta
           name="viewport"
           content="initial-scale=1.0, width=device-width"

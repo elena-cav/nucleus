@@ -3,7 +3,9 @@ export default function Introduction({ projects, global }) {
   return (
     <div className="intro-flyout">
       <div className="intro-wrapper">
-        <p className="intro">{content[0].content}</p>
+        <h1 style={{ fontWeight: "400" }} className="intro">
+          {content[0].content}
+        </h1>
         <p className="intro">{content[1].content}</p>
         <p className="email">
           {" "}

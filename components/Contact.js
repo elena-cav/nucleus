@@ -11,7 +11,7 @@ export default function Contact({ projects, global }) {
   return (
     <div className="contact-flyout">
       <div className="contact-wrapper">
-        <h2 className="contact-title">Contact</h2>
+        <h1 className="contact-title">Contact</h1>
         <address style={{ fontStyle: "normal" }}>
           <h4 style={{ fontWeight: "800" }}>{content[0].content}</h4>
           <h4>{content[1].content}</h4>

@@ -1,8 +1,5 @@
-import Head from "next/head";
-import Image from "next/image";
 import Logo from "../components/images/OW_NucleusLogo_white.png";
 import { useEffect } from "react";
-import styles from "../styles/Home.module.css";
 import { fetchAPI } from "../lib/api";
 import { useState } from "react";
 import Background from "../components/Background";
