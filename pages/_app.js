@@ -25,10 +25,6 @@ const MyApp = ({ Component, pageProps }) => {
           name="description"
           content="Music Artist Management and Executive Production."
         />
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.2.0/js/uikit.min.js" />
-        <script src="https://cdn.jsdelivr.net/npm/uikit@3.2.3/dist/js/uikit-icons.min.js" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.2.0/js/uikit.js" />
       </Head>
       <GlobalContext.Provider value={global}>
         <Component {...pageProps} />
